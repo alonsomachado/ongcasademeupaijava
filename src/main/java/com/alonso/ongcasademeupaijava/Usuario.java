@@ -32,9 +32,6 @@ public class Usuario {
         @Column(name="lastAccess", unique=true)
         @Temporal(TemporalType.DATE)
         private Date ultimoAcesso;
-        
-        @Column(name = "enable", columnDefinition = "BOOLEAN")
-        private boolean enable;
 
         
         public String getUsername() {
