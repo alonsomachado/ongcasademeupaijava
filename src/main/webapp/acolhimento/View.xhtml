@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AcolhimentoViewDlg" widgetVar="AcolhimentoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAcolhimentoTitle}">
+            <h:form id="AcolhimentoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{acolhimentoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_idAcolhido}"/>
+                        <h:outputText value="#{acolhimentoController.selected.idAcolhido}" title="#{bundle.ViewAcolhimentoTitle_idAcolhido}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_dataEntrada}"/>
+                        <h:outputText value="#{acolhimentoController.selected.dataEntrada}" title="#{bundle.ViewAcolhimentoTitle_dataEntrada}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_dataSaida}"/>
+                        <h:outputText value="#{acolhimentoController.selected.dataSaida}" title="#{bundle.ViewAcolhimentoTitle_dataSaida}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_motivoInternacao}"/>
+                        <h:outputText value="#{acolhimentoController.selected.motivoInternacao}" title="#{bundle.ViewAcolhimentoTitle_motivoInternacao}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_drogasConsumidas}"/>
+                        <h:outputText value="#{acolhimentoController.selected.drogasConsumidas}" title="#{bundle.ViewAcolhimentoTitle_drogasConsumidas}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_doencaFamiliar}"/>
+                        <h:outputText value="#{acolhimentoController.selected.doencaFamiliar}" title="#{bundle.ViewAcolhimentoTitle_doencaFamiliar}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_outrasInformacoes}"/>
+                        <h:outputText value="#{acolhimentoController.selected.outrasInformacoes}" title="#{bundle.ViewAcolhimentoTitle_outrasInformacoes}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_internacaoAnterior}"/>
+                        <h:outputText value="#{acolhimentoController.selected.internacaoAnterior}" title="#{bundle.ViewAcolhimentoTitle_internacaoAnterior}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_motivoSaida}"/>
+                        <h:outputText value="#{acolhimentoController.selected.motivoSaida}" title="#{bundle.ViewAcolhimentoTitle_motivoSaida}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_cpf}"/>
+                        <h:outputText value="#{acolhimentoController.selected.cpf}" title="#{bundle.ViewAcolhimentoTitle_cpf}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_nome}"/>
+                        <h:outputText value="#{acolhimentoController.selected.nome}" title="#{bundle.ViewAcolhimentoTitle_nome}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_dataNascimeto}"/>
+                        <h:outputText value="#{acolhimentoController.selected.dataNascimeto}" title="#{bundle.ViewAcolhimentoTitle_dataNascimeto}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_rg}"/>
+                        <h:outputText value="#{acolhimentoController.selected.rg}" title="#{bundle.ViewAcolhimentoTitle_rg}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_naturalidade}"/>
+                        <h:outputText value="#{acolhimentoController.selected.naturalidade}" title="#{bundle.ViewAcolhimentoTitle_naturalidade}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_nacionalidade}"/>
+                        <h:outputText value="#{acolhimentoController.selected.nacionalidade}" title="#{bundle.ViewAcolhimentoTitle_nacionalidade}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_escolaridade}"/>
+                        <h:outputText value="#{acolhimentoController.selected.escolaridade}" title="#{bundle.ViewAcolhimentoTitle_escolaridade}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_profissao}"/>
+                        <h:outputText value="#{acolhimentoController.selected.profissao}" title="#{bundle.ViewAcolhimentoTitle_profissao}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_nomeMae}"/>
+                        <h:outputText value="#{acolhimentoController.selected.nomeMae}" title="#{bundle.ViewAcolhimentoTitle_nomeMae}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_nomePai}"/>
+                        <h:outputText value="#{acolhimentoController.selected.nomePai}" title="#{bundle.ViewAcolhimentoTitle_nomePai}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_nomeResponsavel}"/>
+                        <h:outputText value="#{acolhimentoController.selected.nomeResponsavel}" title="#{bundle.ViewAcolhimentoTitle_nomeResponsavel}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_telefoneResponsavel}"/>
+                        <h:outputText value="#{acolhimentoController.selected.telefoneResponsavel}" title="#{bundle.ViewAcolhimentoTitle_telefoneResponsavel}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_rua}"/>
+                        <h:outputText value="#{acolhimentoController.selected.rua}" title="#{bundle.ViewAcolhimentoTitle_rua}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_numero}"/>
+                        <h:outputText value="#{acolhimentoController.selected.numero}" title="#{bundle.ViewAcolhimentoTitle_numero}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_complemento}"/>
+                        <h:outputText value="#{acolhimentoController.selected.complemento}" title="#{bundle.ViewAcolhimentoTitle_complemento}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_bairro}"/>
+                        <h:outputText value="#{acolhimentoController.selected.bairro}" title="#{bundle.ViewAcolhimentoTitle_bairro}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_cidade}"/>
+                        <h:outputText value="#{acolhimentoController.selected.cidade}" title="#{bundle.ViewAcolhimentoTitle_cidade}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_estado}"/>
+                        <h:outputText value="#{acolhimentoController.selected.estado}" title="#{bundle.ViewAcolhimentoTitle_estado}"/>
+                        <h:outputText value="#{bundle.ViewAcolhimentoLabel_cep}"/>
+                        <h:outputText value="#{acolhimentoController.selected.cep}" title="#{bundle.ViewAcolhimentoTitle_cep}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AcolhimentoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

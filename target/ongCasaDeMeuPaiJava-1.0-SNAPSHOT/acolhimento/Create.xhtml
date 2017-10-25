@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AcolhimentoCreateDlg" widgetVar="AcolhimentoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAcolhimentoTitle}">
+            <h:form id="AcolhimentoCreateForm">
+                
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{acolhimentoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_idAcolhido}" for="idAcolhido" />
+                        <p:inputText id="idAcolhido" value="#{acolhimentoController.selected.idAcolhido}" title="#{bundle.CreateAcolhimentoTitle_idAcolhido}" required="true" requiredMessage="#{bundle.CreateAcolhimentoRequiredMessage_idAcolhido}"/>
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_dataEntrada}" for="dataEntrada" />
+                        <p:calendar id="dataEntrada" pattern="MM/dd/yyyy HH:mm:ss" value="#{acolhimentoController.selected.dataEntrada}" title="#{bundle.EditAcolhimentoTitle_dataEntrada}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_dataSaida}" for="dataSaida" />
+                        <p:calendar id="dataSaida" pattern="MM/dd/yyyy HH:mm:ss" value="#{acolhimentoController.selected.dataSaida}" title="#{bundle.EditAcolhimentoTitle_dataSaida}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_motivoInternacao}" for="motivoInternacao" />
+                        <p:inputText id="motivoInternacao" value="#{acolhimentoController.selected.motivoInternacao}" title="#{bundle.CreateAcolhimentoTitle_motivoInternacao}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_drogasConsumidas}" for="drogasConsumidas" />
+                        <p:inputText id="drogasConsumidas" value="#{acolhimentoController.selected.drogasConsumidas}" title="#{bundle.CreateAcolhimentoTitle_drogasConsumidas}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_doencaFamiliar}" for="doencaFamiliar" />
+                        <p:inputText id="doencaFamiliar" value="#{acolhimentoController.selected.doencaFamiliar}" title="#{bundle.CreateAcolhimentoTitle_doencaFamiliar}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_outrasInformacoes}" for="outrasInformacoes" />
+                        <p:inputText id="outrasInformacoes" value="#{acolhimentoController.selected.outrasInformacoes}" title="#{bundle.CreateAcolhimentoTitle_outrasInformacoes}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_internacaoAnterior}" for="internacaoAnterior" />
+                        <p:inputText id="internacaoAnterior" value="#{acolhimentoController.selected.internacaoAnterior}" title="#{bundle.CreateAcolhimentoTitle_internacaoAnterior}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_motivoSaida}" for="motivoSaida" />
+                        <p:inputText id="motivoSaida" value="#{acolhimentoController.selected.motivoSaida}" title="#{bundle.CreateAcolhimentoTitle_motivoSaida}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_cpf}" for="cpf" />
+                        <p:inputText id="cpf" value="#{acolhimentoController.selected.cpf}" title="#{bundle.CreateAcolhimentoTitle_cpf}" required="true" requiredMessage="#{bundle.CreateAcolhimentoRequiredMessage_cpf}"/>
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{acolhimentoController.selected.nome}" title="#{bundle.CreateAcolhimentoTitle_nome}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_dataNascimeto}" for="dataNascimeto" />
+                        <p:calendar id="dataNascimeto" pattern="MM/dd/yyyy HH:mm:ss" value="#{acolhimentoController.selected.dataNascimeto}" title="#{bundle.EditAcolhimentoTitle_dataNascimeto}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_rg}" for="rg" />
+                        <p:inputText id="rg" value="#{acolhimentoController.selected.rg}" title="#{bundle.CreateAcolhimentoTitle_rg}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_naturalidade}" for="naturalidade" />
+                        <p:inputText id="naturalidade" value="#{acolhimentoController.selected.naturalidade}" title="#{bundle.CreateAcolhimentoTitle_naturalidade}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_nacionalidade}" for="nacionalidade" />
+                        <p:inputText id="nacionalidade" value="#{acolhimentoController.selected.nacionalidade}" title="#{bundle.CreateAcolhimentoTitle_nacionalidade}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_escolaridade}" for="escolaridade" />
+                        <p:inputText id="escolaridade" value="#{acolhimentoController.selected.escolaridade}" title="#{bundle.CreateAcolhimentoTitle_escolaridade}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_profissao}" for="profissao" />
+                        <p:inputText id="profissao" value="#{acolhimentoController.selected.profissao}" title="#{bundle.CreateAcolhimentoTitle_profissao}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_nomeMae}" for="nomeMae" />
+                        <p:inputText id="nomeMae" value="#{acolhimentoController.selected.nomeMae}" title="#{bundle.CreateAcolhimentoTitle_nomeMae}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_nomePai}" for="nomePai" />
+                        <p:inputText id="nomePai" value="#{acolhimentoController.selected.nomePai}" title="#{bundle.CreateAcolhimentoTitle_nomePai}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_nomeResponsavel}" for="nomeResponsavel" />
+                        <p:inputText id="nomeResponsavel" value="#{acolhimentoController.selected.nomeResponsavel}" title="#{bundle.CreateAcolhimentoTitle_nomeResponsavel}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_telefoneResponsavel}" for="telefoneResponsavel" />
+                        <p:inputText id="telefoneResponsavel" value="#{acolhimentoController.selected.telefoneResponsavel}" title="#{bundle.CreateAcolhimentoTitle_telefoneResponsavel}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_rua}" for="rua" />
+                        <p:inputText id="rua" value="#{acolhimentoController.selected.rua}" title="#{bundle.CreateAcolhimentoTitle_rua}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_numero}" for="numero" />
+                        <p:inputText id="numero" value="#{acolhimentoController.selected.numero}" title="#{bundle.CreateAcolhimentoTitle_numero}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_complemento}" for="complemento" />
+                        <p:inputText id="complemento" value="#{acolhimentoController.selected.complemento}" title="#{bundle.CreateAcolhimentoTitle_complemento}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_bairro}" for="bairro" />
+                        <p:inputText id="bairro" value="#{acolhimentoController.selected.bairro}" title="#{bundle.CreateAcolhimentoTitle_bairro}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_cidade}" for="cidade" />
+                        <p:inputText id="cidade" value="#{acolhimentoController.selected.cidade}" title="#{bundle.CreateAcolhimentoTitle_cidade}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{acolhimentoController.selected.estado}" title="#{bundle.CreateAcolhimentoTitle_estado}" />
+                        <p:outputLabel value="#{bundle.CreateAcolhimentoLabel_cep}" for="cep" />
+                        <p:inputText id="cep" value="#{acolhimentoController.selected.cep}" title="#{bundle.CreateAcolhimentoTitle_cep}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{acolhimentoController.create}" value="#{bundle.Save}" update="display,:AcolhimentoListForm:datalist,:growl" oncomplete="handleSubmit(args,'AcolhimentoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AcolhimentoCreateDialog.hide()"/>
+                    
+                </h:panelGroup>
+                
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

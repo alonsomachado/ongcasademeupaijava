@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAcolhimentoTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="AcolhimentoListForm">
+                
+                <p:panel header="#{bundle.ListAcolhimentoTitle}">
+                    <p:dataTable id="datalist" value="#{acolhimentoController.items}" var="item"
+                                 selectionMode="single" selection="#{acolhimentoController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idAcolhido}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_idAcolhido}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idAcolhido}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_nome}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nome}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_dataEntrada}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dataEntrada}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_dataSaida}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dataSaida}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_motivoInternacao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.motivoInternacao}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_drogasConsumidas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.drogasConsumidas}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_motivoSaida}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.motivoSaida}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_dataNascimeto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dataNascimeto}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_rg}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rg}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_profissao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.profissao}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_nomeResponsavel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomeResponsavel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAcolhimentoTitle_telefoneResponsavel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefoneResponsavel}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{acolhimentoController.prepareCreate}" update=":AcolhimentoCreateForm" oncomplete="PF('AcolhimentoCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AcolhimentoViewForm" oncomplete="PF('AcolhimentoViewDialog').show()" disabled="#{empty acolhimentoController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":AcolhimentoEditForm" oncomplete="PF('AcolhimentoEditDialog').show()" disabled="#{empty acolhimentoController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{acolhimentoController.destroy}" update=":growl,datalist" disabled="#{empty acolhimentoController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+                    
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>
